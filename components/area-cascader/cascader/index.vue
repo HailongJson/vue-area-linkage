@@ -183,16 +183,23 @@
 
                 this.activeValues = [].concat(activeValues);
                 this.labels = [].concat(labels);
-            },
-
-            handleSelectedChange () {
-                this.shown = false;
                 this.values = [].concat(this.activeValues);
                 this.label = this.labels.join(this.separator);
-                if (!this.isClickOutSide) {
-                    this.$emit('change', this.values, this.labels);
+                this.$emit('change', this.values, this.labels);
+                //当没有子节点时应当默认关闭选项卡
+                if (!children){
+                    this.shown = false;
                 }
             },
+
+            // handleSelectedChange () {
+            //     this.shown = false;
+            //     this.values = [].concat(this.activeValues);
+            //     this.label = this.labels.join(this.separator);
+            //     if (!this.isClickOutSide) {
+            //         this.$emit('change', this.values, this.labels);
+            //     }
+            // },
 
             handleListEnter () {
                 this.$nextTick(() => {
@@ -207,7 +214,7 @@
                 throw new Error('[area-cascader]: Must be call Vue.use(VueAreaLinkage) before used');
             }
             this.eventBus = Bus.createEventBus();
-            this.eventBus.$on('selected', this.handleSelectedChange);
+            // this.eventBus.$on('selected', this.handleSelectedChange);
         },
 
         mounted () {

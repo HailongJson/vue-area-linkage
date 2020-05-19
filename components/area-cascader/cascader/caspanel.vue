@@ -2,12 +2,12 @@
     <span>
         <ul class="cascader-menu-list" ref="list">
             <li v-for="(item, index) in data"
-                :key="getUniqueKey(index)" 
+                :key="getUniqueKey(index)"
                 :class="{
                     'cascader-menu-option': true,
                     'cascader-menu-extensible': item['children'],
                     'selected': cascader.activeValues.includes(item.value)//cascader.useTmp ? cascader.tmpVals.includes(item.value) : cascader.vals.includes(item.value)
-                }" 
+                }"
                 @click.stop="handleClickItem(item)">
                 {{item.label}}
             </li>
@@ -65,7 +65,7 @@
                 this.cascader.handleMenuItemClick(item);
                 if (!item.children) {
                     this.sublist = [];
-                    this.cascader.eventBus.$emit('selected');
+                    // this.cascader.eventBus.$emit('selected');
                 } else {
                     this.sublist = [].concat(item.children);
                 }
@@ -77,7 +77,7 @@
 
                 if (!item.children) {
                     this.sublist = [];
-                    this.cascader.eventBus.$emit('selected');
+                    // this.cascader.eventBus.$emit('selected');
                 } else {
                     this.sublist = [].concat(item.children);
                 }
