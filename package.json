@@ -1,17 +1,17 @@
 {
-  "name": "vue-area-linkage",
-  "version": "5.1.0",
-  "description": "Vue area linkage",
-  "author": "pomysky@gmail.com",
+  "name": "vue-area-linkage-diy",
+  "version": "5.1.1",
+  "description": "基于源码修改级联选择时可以停止",
+  "author": "1105744725@qq.com",
   "license": "MIT",
   "main": "dist/index.js",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/dwqs/vue-area-linkage.git"
+    "url": "https://github.com/HailongJson/vue-area-linkage"
   },
   "bugs": {
-    "url": "https://github.com/dwqs/vue-area-linkage/issues"
+    "url": "https://github.com/HailongJson/vue-area-linkage/issues"
   },
   "files": [
     "dist",
