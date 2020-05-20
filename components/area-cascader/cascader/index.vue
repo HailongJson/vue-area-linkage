@@ -76,7 +76,6 @@
                 // 计算位置
                 areaRect: null,
                 top: 32,
-
                 shown: false,
                 eventBus: null,
                 activeValues: [], // 当前激活项
@@ -186,8 +185,7 @@
                 this.values = [].concat(this.activeValues);
                 this.label = this.labels.join(this.separator);
                 this.$emit('change', this.values, this.labels);
-                //当没有子节点时应当默认关闭选项卡
-                if (!children){
+                if (!children) {
                     this.shown = false;
                 }
             },

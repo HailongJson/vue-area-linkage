@@ -1,4 +1,4 @@
 src/
 build/*.js
 config/*.js
-src/assets
+src/components

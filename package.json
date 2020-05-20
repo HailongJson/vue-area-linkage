@@ -1,7 +1,7 @@
 {
   "name": "vue-area-linkage-diy",
   "version": "5.1.1",
-  "description": "基于源码修改级联选择时可以停止",
+  "description": "基于原组件(v5.1.0)修改级联选择时可以按需停止",
   "author": "1105744725@qq.com",
   "license": "MIT",
   "main": "dist/index.js",

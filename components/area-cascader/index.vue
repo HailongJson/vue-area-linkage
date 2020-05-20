@@ -1,7 +1,7 @@
 <template>
     <div class="area-cascader-wrap">
         <v-cascader
-            :placeholder="placeholder" 
+            :placeholder="placeholder"
             :options="options"
             :defaultsAreaCodes="defaultsAreaCodes"
             :size="size"
@@ -9,7 +9,8 @@
             :separator="separator"
             :data="data"
             @setDefault="isSetDefault = true"
-            @change="handleChange">
+            @change="handleChange"
+            @reset="handleReset">
         </v-cascader>
     </div>
 </template>
@@ -19,7 +20,7 @@
 
     import Cascader from './cascader/index.vue';
 
-    import { assert, isArray } from '@src/utils';
+    import {assert, isArray} from '@src/utils';
 
     export default {
         name: 'area-cascader',
@@ -63,7 +64,7 @@
             }
         },
 
-        data () {
+        data() {
             if (!this.data || !this.data['86']) {
                 throw new Error('[vue-area-linkage]: 需要提供地区数据：https://github.com/dwqs/area-data');
             }
@@ -73,14 +74,12 @@
                 areas: {},
                 // only array
                 options: [],
-
                 curProvince: '', // text
                 curProvinceCode: '', // code
                 curCity: '',
                 curCityCode: '',
                 curArea: '',
                 curAreaCode: '',
-
                 // 设置默认值的判断
                 defaultsAreaCodes: [], // 默认值对应的 code
                 defaults: [],
@@ -90,7 +89,7 @@
         },
 
         watch: {
-            value (val) {
+            value(val) {
                 if (!this.isSetDefault && isArray(val) && val.length === this.level + 2) {
                     this.beforeSetDefault();
                     this.setDefaultValue();
@@ -101,7 +100,7 @@
                 }
             },
 
-            curProvinceCode (val) {
+            curProvinceCode(val) {
                 this.curProvince = this.provinces[val];
                 this.citys = this.data[val];
 
@@ -133,7 +132,7 @@
                 this.curCityCode = curCityCode;
             },
 
-            curCityCode (val) {
+            curCityCode(val) {
                 this.curCity = this.citys[val];
                 if (this.level === 0) {
                     this.setDefaultsCodes();
@@ -168,7 +167,7 @@
                 }
             },
 
-            curAreaCode (val) {
+            curAreaCode(val) {
                 this.curArea = this.areas[val];
                 this.curAreaCode = val;
                 this.setDefaultsCodes();
@@ -176,7 +175,7 @@
         },
 
         methods: {
-            beforeSetDefault () {
+            beforeSetDefault() {
                 const chinese = /^[\u4E00-\u9FA5\uF900-\uFA2D]{2,}$/;
                 const num = /^\d{6,}$/;
                 const isCode = num.test(this.value[0]);
@@ -194,7 +193,7 @@
                 this.isCode = isCode;
             },
 
-            setDefaultValue () {
+            setDefaultValue() {
                 let provinceCode = '';
 
                 if (this.isCode) {
@@ -213,7 +212,7 @@
                 });
             },
 
-            handleChange (codes, labels) {
+            handleChange(codes, labels) {
                 let res = [];
                 if (this.isSetDefault) {
                     // this.emitter.emit('set-def-values', codes, labels);
@@ -239,8 +238,10 @@
                 this.$emit('input', res);
                 this.$emit('change', res);
             },
-
-            iterate (obj, panelIndex) {
+            handleReset () {
+                this.$emit('input', '');
+            },
+            iterate(obj, panelIndex) {
                 // panelIndex 表示所在 panel 的索引
                 const temp = [];
                 for (const key in obj) {
@@ -253,7 +254,7 @@
                 return temp;
             },
 
-            iterateCities () {
+            iterateCities() {
                 const temp = [];
                 const provinces = this.iterate(this.data['86'], 0);
 
@@ -270,7 +271,7 @@
                 return temp;
             },
 
-            iterateAreas () {
+            iterateAreas() {
                 const temp = [];
                 const cities = this.iterateCities();
 
@@ -295,7 +296,7 @@
                 return temp;
             },
 
-            setDefaultsCodes () {
+            setDefaultsCodes() {
                 if (this.isSetDefault) {
                     return;
                 }
@@ -314,7 +315,7 @@
             }
         },
 
-        created () {
+        created() {
             if (this.level === 0) {
                 this.options = this.iterateCities();
             } else if (this.level === 1) {

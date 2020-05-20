@@ -1,24 +1,20 @@
 ![npm-version](https://img.shields.io/npm/v/vue-area-linkage.svg) ![license](https://img.shields.io/npm/l/vue-area-linkage.svg)
-# vue-area-linkage
+# vue-area-linkage-diy
 省市区联动选择. 组合数据来源：[area-data](https://github.com/dwqs/area-data)
+
+本插件修改自vue-area-linkage(原链接地址:https://dwqs.github.io/vue-area-linkage/)
+
+在原作者的v5.1.0上做了少量改动,实现了级联选择省市区时,选中任一级,鼠标失焦则可停止选择.
+
 
 ## Installation
 Install the pkg with npm:
 ```
-// v5之前的版本
-npm i --save vue-area-linkage
+npm i --save vue-area-linkage-diy area-data
+```
+## tips
+使用时只需安装vue-area-linkage-diy,其余使用方法按照原文档即可
 
-// v5及之后的版本
-npm i --save vue-area-linkage area-data
-```
-or yarn
-```
-// v5之前的版本
-yarn add vue-area-linkage
-
-// v5及之后的版本
-yarn add vue-area-linkage area-data
-```
 
 ## Usage
 ```
@@ -48,44 +44,6 @@ Vue.use(VueAreaLinkage)
 
 More demo to visit [here](https://dwqs.github.io/vue-area-linkage/).
 
-## On Demand Import
-> version >= 2.1.2
-
-安装 [babel-plugin-on-demand-import](https://github.com/dwqs/babel-plugin-on-demand-import):
-
-```
-npm i babel-plugin-on-demand-import -D
-```
-
-修改 `.babelrc`:
-
-```
-{
-    // ...
-    "plugins": [
-        ["on-demand-import" {
-            "libraryName": "vue-area-linkage",
-            "libraryPath": "dist/lib"
-        }]
-    ]
-}
-```
-
-```
-import 'vue-area-linkage/dist/index.css'; // v2 or higher
-import pcaa from 'area-data/pcaa';
-// Only import AreaCascader component
-import { AreaCascader } from 'vue-area-linkage';
-Vue.use(AreaCascader);
-
-<area-cascader v-model="val" level={1} :data="pcaa"></area-cascader>
-
-// Only import AreaSelect component
-import { AreaSelect } from 'vue-area-linkage';
-Vue.use(AreaSelect);
-
-<area-select v-model="val2" level={2} :data="pcaa"></area-select>
-```
 
 ## 属性
 ### area-select 组件
