@@ -9,8 +9,7 @@
             :separator="separator"
             :data="data"
             @setDefault="isSetDefault = true"
-            @change="handleChange"
-            @reset="handleReset">
+            @change="handleChange">
         </v-cascader>
     </div>
 </template>
@@ -237,9 +236,6 @@
                 }
                 this.$emit('input', res);
                 this.$emit('change', res);
-            },
-            handleReset () {
-                this.$emit('input', '');
             },
             iterate(obj, panelIndex) {
                 // panelIndex 表示所在 panel 的索引

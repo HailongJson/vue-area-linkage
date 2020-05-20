@@ -3790,7 +3790,6 @@ var Component = normalizeComponent(
             // 计算位置
             areaRect: null,
             top: 32,
-
             shown: false,
             eventBus: null,
             activeValues: [], // 当前激活项
@@ -3900,7 +3899,6 @@ var Component = normalizeComponent(
             this.values = [].concat(this.activeValues);
             this.label = this.labels.join(this.separator);
             this.$emit('change', this.values, this.labels);
-            //当没有子节点时应当默认关闭选项卡
             if (!children) {
                 this.shown = false;
             }
@@ -3951,7 +3949,7 @@ var Component = normalizeComponent(
         window.document.removeEventListener('click', this.handleDocClick, false);
     }
 });
-// CONCATENATED MODULE: ./node_modules/_vue-loader@13.7.3@vue-loader/lib/template-compiler?{"id":"data-v-1830ddf8","hasScoped":false,"buble":{"transforms":{}}}!./node_modules/_vue-loader@13.7.3@vue-loader/lib/selector.js?type=template&index=0!./components/area-cascader/cascader/index.vue
+// CONCATENATED MODULE: ./node_modules/_vue-loader@13.7.3@vue-loader/lib/template-compiler?{"id":"data-v-07fe24ba","hasScoped":false,"buble":{"transforms":{}}}!./node_modules/_vue-loader@13.7.3@vue-loader/lib/selector.js?type=template&index=0!./components/area-cascader/cascader/index.vue
 var cascader_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{ref:"area",staticClass:"area-select",class:{
     'medium': _vm.size === 'medium',
     'small': _vm.size === 'small',
@@ -4072,14 +4070,12 @@ var cascader_Component = cascader_normalizeComponent(
             areas: {},
             // only array
             options: [],
-
             curProvince: '', // text
             curProvinceCode: '', // code
             curCity: '',
             curCityCode: '',
             curArea: '',
             curAreaCode: '',
-
             // 设置默认值的判断
             defaultsAreaCodes: [], // 默认值对应的 code
             defaults: [],
@@ -4344,7 +4340,7 @@ var cascader_Component = cascader_normalizeComponent(
         }
     }
 });
-// CONCATENATED MODULE: ./node_modules/_vue-loader@13.7.3@vue-loader/lib/template-compiler?{"id":"data-v-00f91b69","hasScoped":false,"buble":{"transforms":{}}}!./node_modules/_vue-loader@13.7.3@vue-loader/lib/selector.js?type=template&index=0!./components/area-cascader/index.vue
+// CONCATENATED MODULE: ./node_modules/_vue-loader@13.7.3@vue-loader/lib/template-compiler?{"id":"data-v-7424f779","hasScoped":false,"buble":{"transforms":{}}}!./node_modules/_vue-loader@13.7.3@vue-loader/lib/selector.js?type=template&index=0!./components/area-cascader/index.vue
 var area_cascader_render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"area-cascader-wrap"},[_c('v-cascader',{attrs:{"placeholder":_vm.placeholder,"options":_vm.options,"defaultsAreaCodes":_vm.defaultsAreaCodes,"size":_vm.size,"disabled":_vm.disabled,"separator":_vm.separator,"data":_vm.data},on:{"setDefault":function($event){_vm.isSetDefault = true},"change":_vm.handleChange}})],1)}
 var area_cascader_staticRenderFns = []
 var area_cascader_esExports = { render: area_cascader_render, staticRenderFns: area_cascader_staticRenderFns }

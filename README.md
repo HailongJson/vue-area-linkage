@@ -1,8 +1,8 @@
 ![npm-version](https://img.shields.io/npm/v/vue-area-linkage.svg) ![license](https://img.shields.io/npm/l/vue-area-linkage.svg)
-# vue-area-linkage-diy
+# vue-area-linkages
 省市区联动选择. 组合数据来源：[area-data](https://github.com/dwqs/area-data)
 
-本插件修改自vue-area-linkage(原链接地址:https://dwqs.github.io/vue-area-linkage/)
+本插件修改自vue-area-linkage(原链接地址:https://github.com/dwqs/vue-area-linkage/)
 
 在原作者的v5.1.0上做了少量改动,实现了级联选择省市区时,选中任一级,鼠标失焦则可停止选择.
 
@@ -10,18 +10,18 @@
 ## Installation
 Install the pkg with npm:
 ```
-npm i --save vue-area-linkage-diy area-data
+npm i --save vue-area-linkages area-data
 ```
 ## tips
-使用时只需安装vue-area-linkage-diy,其余使用方法按照原文档即可
+使用时只需安装vue-area-linkages,其余使用方法按照原文档即可
 
 
 ## Usage
 ```
 import Vue from 'vue';
 import { pca, pcaa } from 'area-data'; // v5 or higher
-import 'vue-area-linkage/dist/index.css'; // v2 or higher
-import VueAreaLinkage from 'vue-area-linkage';
+import 'vue-area-linkages/dist/index.css'; // v2 or higher
+import VueAreaLinkage from 'vue-area-linkages';
 
 Vue.use(VueAreaLinkage)
 ```

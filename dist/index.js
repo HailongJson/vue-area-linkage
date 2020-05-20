@@ -4533,7 +4533,6 @@ if (false) {(function () {
             // 计算位置
             areaRect: null,
             top: 32,
-
             shown: false,
             eventBus: null,
             activeValues: [], // 当前激活项
@@ -4643,7 +4642,6 @@ if (false) {(function () {
             this.values = [].concat(this.activeValues);
             this.label = this.labels.join(this.separator);
             this.$emit('change', this.values, this.labels);
-            //当没有子节点时应当默认关闭选项卡
             if (!children) {
                 this.shown = false;
             }
@@ -4907,14 +4905,12 @@ if (false) {(function () {
             areas: {},
             // only array
             options: [],
-
             curProvince: '', // text
             curProvinceCode: '', // code
             curCity: '',
             curCityCode: '',
             curArea: '',
             curAreaCode: '',
-
             // 设置默认值的判断
             defaultsAreaCodes: [], // 默认值对应的 code
             defaults: [],
